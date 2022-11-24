@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note-01</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background: #191522;
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 20px;
+        }
+        section {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Primeiro teste</h1>
+
+    <section>
+        <h2>Setup de um teste:</h2>
+
+        <ul>
+            <li>
+                <p>Criar arquivo de testes com o mesmo nome do componente (App.jsx -> App.test.jsx):</p>
+                <img src="images/01.png" alt="">
+            </li>
+
+            <li>
+                <p>OBS: Lembrar de sempre importar o jest-dom do TestingLibrary pros métodos do TestingLibrary ficarem disponíveis no arquivo atual.</p>
+                <img src="images/02.png" alt="">
+            </li>
+
+            <li>
+                <p>OBS: Lembrar de importar o Render do TestingLibrary/React. Ele renderiza os componentes.</p>
+                <img src="images/03.png" alt="">
+            </li>
+
+            <li>
+                <p>Dentro do Vitest, precisamos importar alguns componentes: { describe, expect, test }.</p>
+                <p>{ describe } >>> Descreve qual que é o teste, o que ele vai fazer.</p>
+                <p>{ expect } >>> Diz o que o teste espera que aconteça.</p>
+                <p>{ test } >>> É o teste em si.</p>
+                <img src="images/04.png" alt="">
+            </li>
+
+            <li>
+                <p>Importar o componente que vai ser testado dentro do arquivo de testes:</p>
+                <img src="images/05.png" alt="">
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>TESTE: 'Garantindo que a aplicação está sendo renderizada na tela.'</h2>
+
+        <ul>
+            <li>
+                <p>Descrevendo qual é o teste (testando algo relacionado ao App.jsx).</p>
+                <p>A função Describe() recebe dois parâmetros iniciais, uma String descrevendo qual componente está sendo testado + uma Arrow Function.</p>
+                <img src="images/06.png" alt="">
+                <p>OBS: Dentro dessa função 'Describe()' vai ser montada a 'Switch de Testes' (before.each, after.each, test()). Nesse caso, dentro da Arrow Function do Describe().</p>
+            </li>
+
+            <li>
+                <p>Definir o objetivo do teste e dar um bom texto para ele. Por convenção, o texto do teste é escrito em Inglês.</p>
+                <img src="images/07.png" alt="">
+            </li>
+
+            <li>
+                <p>Depois do texto do teste, vem uma Arrow Function.</p>
+                <img src="images/08.png" alt="">
+            </li>
+
+            <li>
+                <p>Garantindo que a aplicação está sendo renderizada à partir da lógica de que o app esteja mostrando um texto inicial na tela.</p>
+                <img src="images/09.png" alt="">
+            </li>
+
+            <li>
+                <p>Estruturar a função 'render()' do Vitest.</p>
+                <img src="images/10.png" alt="">
+            </li>
+
+            <li>
+                <p>Passar para dentro da função 'render()' do Vitest, o componente que deve ser testado (&lt;App /&gt;).</p>
+                <img src="images/11.png" alt="">
+            </li>
+
+            <li>
+                <p>Passar para dentro do 'const' um 'debug' e chamar essa função logo abaixo do const.</p>
+                <img src="images/12.png" alt="">
+                <p><strong>>>> npm run test</strong></p>
+                <p>Ele printa a estrutura HTML do componente dentro do terminal.</p>
+                <img src="images/13.png" alt="">
+                <p>OBS: O debug() serve apenas para mostrar a ação no terimal.</p>
+            </li>
+
+            <li>
+                <p>Tornar o teste mais coeso.</p>
+                <p>- Pegar o elemento pelo texto.</p>
+                <p>- Esperando que...</p>
+                <img src="images/14.png" alt="">
+                <p>- Chamar a função getByText() e passar por parâmetro pra dentro dela o texto que quiser capturar da aplicação.</p>
+                <img src="images/15.png" alt="">
+                <p>- Seja... (Nesse caso: - "Esteja dentro do documento...")</p>
+                <img src="images/16.png" alt="">
+                <p>Só rodar o teste que ele vai passar.</p>
+                <img src="images/17.png" alt="">
+                <p>OBS: Vale fazer alterações no texto e testar se o teste realmente passou ou não.</p>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

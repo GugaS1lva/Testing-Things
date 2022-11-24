@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note-02</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background: #191522;
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 20px;
+        }
+        section {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Experimentando TDD (Test Driven Development)</h1>
+    <p>Desenvolvimento da aplicação baseada nos testes, ou seja, primeiro são criado os testes com as regras ed negócio para aí sim serem criado todos os componentes que formam nossa aplicação.</p>
+
+    <section>
+        <h2>Setup do TDD</h2>
+
+        <ul>
+            <li>
+                <p>Criação da pasta components (components) + pasta do componente de botão (Button) e seus respectivos arquivos, um para os testes e o outro pro próprio componente (index.jsx + Button.test.jsx).</p>
+                <img src="images/01.png" alt="">
+            </li>
+
+            <li>
+                <p>Começar o desenvolvimento pelo arquivo de teste.</p>
+                <p>Importar o jsdom</p>
+                <img src="images/02.png" alt="">
+            </li>
+
+            <li>
+                <p>- Importando o Describe() do Vitest</p>
+                <p>- Criando a estrutura do Describe(), passando como primeiro parâmetro o nome do componente que vai ser testado (Button) e como segundo parâmetro a Arrow Function do Switch Tests</p>
+                <p>- Criando a estrutura da função test(), passando por parâmetro o texto do teste e como segundo parâmetro, a Arrow Function do teste()</p>
+                <img src="images/03.png" alt="">
+            </li>
+
+            <li>
+                <p>- Importar o componente Button (LINHA 5)</p>
+                <p>- Definir o texto do teste</p>
+                <p>- Criar o escopo do teste, pegando a função getByTestId()</p>
+                <p>- Colocar dentro do render o componente que deseja ser renderizado com o texto padrão (já que o componente ainda não foi criado)</p>
+                <img src="images/04.png" alt="">
+                <p>OBS: Diferentemente do getByText() (que procura exatamente aquele texto em toda aplicação), esse getByTestId() define um id específico para cada componente, garantindo que possa ser capturado todos os componentes com aquele mesmo id.</p>
+            </li>
+
+            <li>
+                <p>- Criando uma string "button" e passando pra dentro de 'buttonTestID'</p>
+                <p>- Esperando que... o getByTestId() recebendo a string 'buttonTestID' por parâmetro, esteja dentro do documento.</p>
+                <img src="images/05.png" alt="">
+            </li>
+
+            <li>
+                <p><strong>CORRIGINDO ERRO NO TEXTO DO TESTE:</strong></p>
+                <img src="images/erro-01.png" alt="">
+                <p>OBS: >>> npm run test</p>
+                <p>Vai dar erro porque o componente ainda não existe!!!</p>
+            </li>
+
+            <li>
+                <p>Criar o componente do botão.</p>
+                <p>Deixando o texto do botão genérico com o {children}.</p>
+                <p>Vai dar erro se não passar o id, criado anteriormente, para dentro do componente.</p>
+                <img src="images/06.png" alt="">
+            </li>
+
+            <li>
+                <p>Passar o TestID pro botão</p>
+                <img src="images/07.png" alt="">
+            </li>
+
+            <li>
+                <p>TDD Concluído.</p>
+                <img src="images/08.png" alt="">
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Criando um segundo teste no mesmo arquivo</h2>
+
+        <ul>
+            <li>
+                <p>Criando o escopo do teste</p>
+                <img src="images/09.png" alt="">
+            </li>
+
+            <li>
+                <p>Definindo o texto do teste</p>
+                <img src="images/10.png" alt="">
+            </li>
+
+            <li>
+                <p><strong>Utilizando o 'beforeEach()'</strong></p>
+                <p>Importar o 'screen' do TestingLibrary</p>
+                <img src="images/11.png" alt="">
+            </li>
+
+            <li>
+                <p>Definir o escopo do beforeEach()</p>
+                <p>"Antes de cada teste, execute..."</p>
+                <img src="images/12.png" alt="">
+            </li>
+
+            <li>
+                <p>Antes de cada teste, renderize o componente 'Button'</p>
+                <img src="images/13.png" alt="">
+            </li>
+
+            <li>
+                <p>Remover essa linha:</p>
+                <img src="images/14.png" alt="">
+            </li>
+
+            <li>
+                <p>Antes do getByTestId(), colocar o 'screen.'</p>
+                <p>O teste vai passar.</p>
+                <img src="images/15.png" alt="">
+            </li>
+
+            <li>
+                <p>Duplicar o expect() do teste à cima.</p>
+                <img src="images/16.png" alt="">
+            </li>
+
+            <li>
+                <p>"Esperando que o componente esteja renderizado em tela..."</p>
+                <p>"Com o texto 'Default Text'"</p>
+                <img src="images/17.png" alt="">
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>TESTE: Garantindo que o botão seja funcional.</h2>
+
+        <ul>
+            <li>
+                <p>Definindo o escopo do teste + texto do teste</p>
+                <img src="images/18.png" alt="">
+            </li>
+
+            <li>
+                <p>Importando o 'vi' do vitest.</p>
+                <p>Pra clicar num botão, dentro do Vitest, temos um "Helper Mocking Function" chamado 'handleClick'. </p>
+                <img src="images/19.png" alt="">
+            </li>
+
+            <li>
+                <p>ATENÇÃO: Pra resolver o problema de validação de funções dentro de um botão, deve remover o beforeEach() e duplicar a renderização do componente (justamente o que o beforeEach() resolvia) na linha 15 e 21.</p>
+                <img src="images/20.png" alt="">
+            </li>
+
+            <li>
+                <p>Escrever pela terceira vez a renderização do componente.</p>
+                <img src="images/21.png" alt="">
+            </li>
+
+            <li>
+                <p>Criar o evento de click apenas nesse ultimo componente e passar pra dentro dele a chamada da fução 'handleClick'.</p>
+                <img src="images/22.png" alt="">
+            </li>
+
+            <li>
+                <p>Importar o fireEvent do TestingLibrary.</p>
+                <p>O fireEvent pode fazer de tudo, como manipular input, manipular select, clicar num form, dar submit num form...</p>
+                <img src="images/23.png" alt="">
+            </li>
+
+            <li>
+                <p>"Esperando que a função 'handleClick' seja chamada 0 vezes."</p>
+                <p>Esse número pode alterar dependendo do resultado que o Dev queria.</p>
+                <img src="images/24.png" alt="">
+            </li>
+
+            <li>
+                <p>Exemplificando um número diferente de cliques escolhido pelo dev. Teste levando em conta 0 cliques.</p>
+                <img src="images/25.png" alt="">
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>TESTE: Garantindo que o botão tenha estilo padrão.</h2>
+
+        <ul>
+            <li>
+                <p>Criando o escopo e definindo um texto pro teste.</p>
+                <img src="images/26.png" alt="">
+            </li>
+
+            <li>
+                <p>Duplicando a renderização do componente.</p>
+                <img src="images/27.png" alt="">
+            </li>
+
+            <li>
+                <p>"Esperando que o componente tenha os estilos..."</p>
+                <img src="images/28.png" alt="">
+                <p>Tenha esses estilos:</p>
+                <img src="images/29.png" alt="">
+            </li>
+
+            <li>
+                <p>Criando os estilos por padrão no componente:</p>
+                <img src="images/30.png" alt="">
+                <p>OBS: Chamar o componente Button no App.jsx</p>
+                <p>>>> npm run test</p>
+                <img src="images/31.png" alt="">
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
