@@ -9,6 +9,7 @@ const Button = ({ children }) => {
                 color: '#FFF',
                 fontSize: "20px",
                 borderRadius: '5px',
+                cursor: "pointer",
             }}
         >{children}</button>
     )
